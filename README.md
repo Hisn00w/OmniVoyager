@@ -15,7 +15,7 @@
 </div>
 
 <p align="center">
-  <a href="./.github/README_ZH.md">中文说明（完整）</a> · <a href="#简体中文快速说明">中文速览</a>
+  <a href="./README_ZH.md">中文说明（完整）</a> · <a href="#简体中文快速说明">中文速览</a>
 </p>
 
 ---
@@ -166,7 +166,7 @@ If you find Omni Voyager helpful, consider supporting development:
   <table>
     <tr>
       <td align="center">
-        <img src="public/wechat-sponsor.png" alt="WeChat Pay" width="200"><br>
+        <img src="public/wechat-sponsor.jpg" alt="WeChat Pay" width="200"><br>
         <sub><b>WeChat Pay</b></sub>
       </td>
       <td align="center">
@@ -181,11 +181,11 @@ If you find Omni Voyager helpful, consider supporting development:
 
 ## Star History
 
-<a href="https://www.star-history.com/#Hisn00w/OmniVoyager&type=date&legend=top-left">
+<a href="https://www.star-history.com/#Hisn00w/OmniVoyager&Timeline">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=Hisn00w/OmniVoyager&type=date&theme=dark&legend=top-left" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=Hisn00w/OmniVoyager&type=date&legend=top-left" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=Hisn00w/OmniVoyager&type=date&legend=top-left" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=Hisn00w/OmniVoyager&type=Timeline&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=Hisn00w/OmniVoyager&type=Timeline" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=Hisn00w/OmniVoyager&type=Timeline" />
  </picture>
 </a>
 
@@ -197,6 +197,8 @@ If you find Omni Voyager helpful, consider supporting development:
 </div>
 
 ---
+
+## 简体中文快速说明
 
 - 支持站点：Gemini、AI Studio、ChatGPT（chatgpt.com / chat.openai.com）、Deepseek（chat.deepseek.com）、豆包（www.doubao.com）、Kimi（www.kimi.com / kimi.moonshot.cn）
 - 主要功能：时间线导航、提示库、对话导出（JSON/Markdown/PDF）、聊天宽度可调、公式复制
