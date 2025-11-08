@@ -1,8 +1,8 @@
-﻿<div align="center">
+<div align="center">
   <img src="public/icon-128.png" alt="logo"/>
   <h1>Omni Voyager</h1>
-  <h3>Your all-in-one toolkit for Gemini · AI Studio · ChatGPT · Deepseek · 豆包 · Kimi</h3>
-  <p>Timeline navigation, prompt library, one-click export, width controls, and formula copy — all optimized for modern AI chat surfaces.</p>
+  <h3>您的全能工具包，适用于 Gemini · AI Studio · ChatGPT · Deepseek · 豆包 · Kimi</h3>
+  <p>时间线导航、提示词库、一键导出、宽度控制和公式复制 — 全部针对现代AI聊天界面进行了优化。</p>
 
   <p>
     <img src="https://img.shields.io/badge/Chrome-4285F4?style=flat-square&logo=googlechrome&logoColor=white" alt="Chrome">
@@ -15,145 +15,145 @@
 </div>
 
 <p align="center">
-  <a href="./README_ZH.md">中文说明（完整）</a> · <a href="#简体中文快速说明">中文速览</a>
+  <a href="./README_EN.md">English</a> · <a href="#简体中文快速说明">中文速览</a>
 </p>
 
 ---
 
-## Features
+## 功能特性
 
 <div align="center">
   <img src="public/teaser.png" alt="teaser"/>
 </div>
 
-### Timeline Navigation
+### 时间线导航
 
-Navigate long conversations at a glance:
-- Click dots to jump to messages
-- Hover for preview
-- Long‑press to star important messages (syncs across tabs)
-- Drag the bar to reposition; auto‑sync with scroll
+一览无余地浏览长对话：
+- 点击圆点跳转到消息
+- 悬停预览内容
+- 长按收藏重要消息（跨标签页同步）
+- 拖拽进度条重新定位；自动与滚动同步
 
-### Folder Organization (Gemini/AI Studio)
+### 文件夹组织 (Gemini/AI Studio)
 
-Organize chats with two‑level folders:
-- Drag and drop conversations into folders/subfolders
-- Context menu: rename, duplicate, delete
-- Local storage shared across accounts (u/0, u/1, …)
-- Import/Export for cross‑device sync (see docs/IMPORT_EXPORT_GUIDE.md)
+使用两级文件夹整理聊天记录：
+- 拖放对话到文件夹/子文件夹
+- 右键菜单：重命名、复制、删除
+- 本地存储跨账户共享 (u/0, u/1, …)
+- 导入/导出实现跨设备同步 (参见 docs/IMPORT_EXPORT_GUIDE.md)
 
-### Prompt Library
+### 提示词库
 
-Save, search, and reuse prompts:
-- Tag system + keyword search
-- Import/Export as JSON
-- Works on Gemini, AI Studio, and ChatGPT
+保存、搜索和重复使用提示词：
+- 标签系统 + 关键词搜索
+- 以JSON格式导入/导出
+- 适用于 Gemini、AI Studio 和 ChatGPT
 
-### Formula Copy
+### 公式复制
 
-Click KaTeX/MathJax formulas to copy source:
-- Supports inline and display math
-- Visual success feedback
+点击KaTeX/MathJax公式复制源码：
+- 支持行内和块级数学公式
+- 可视化成功反馈
 
-### Chat Export (JSON · Markdown · PDF)
+### 对话导出 (JSON · Markdown · PDF)
 
-Export conversations with clean formatting:
-- JSON for developers
-- Markdown/PDF with images placed under `assets/`
-- One‑click export button in the page header
-- Preserves starred messages; hides UI noise (e.g., “Show thinking”)
+导出格式良好的对话：
+- JSON格式供开发者使用
+- Markdown/PDF格式图片放置在 `assets/` 目录下
+- 页面头部的一键导出按钮
+- 保留收藏的消息；隐藏界面干扰元素（如"显示思考过程"）
 
-### Adjustable Chat Width
+### 可调节聊天宽度
 
-Customize chat width (400–1400px) with real‑time preview.
+自定义聊天宽度（400-1400px）实时预览。
 
-> Open the extension popup to adjust scroll mode, chat width, and timeline options.
+> 打开扩展弹窗可调整滚动模式、聊天宽度和时间线选项。
 
 ---
 
-## Supported Sites
+## 支持的网站
 
 - Gemini (`https://gemini.google.com/*`)
 - AI Studio (`https://aistudio.google.com/*`)
 - ChatGPT (`https://chatgpt.com/*`, `https://chat.openai.com/*`)
 - Deepseek (`https://chat.deepseek.com/*`)
-- Doubao (`https://www.doubao.com/*`)
+- 豆包 (`https://www.doubao.com/*`)
 - Kimi (`https://www.kimi.com/*`, `https://kimi.moonshot.cn/*`)
 
 ---
 
-## Installation
+## 安装方法
 
-Recommended: download the latest release from GitHub Releases. The Web Store listing may lag due to reviews.
+推荐：从GitHub Releases下载最新版本。Web商店列表可能因审核而滞后。
 
-### Option 1: Manual (recommended)
+### 方式一：手动安装（推荐）
 
-Chromium (Chrome, Edge, Opera, Brave, Vivaldi, Arc):
+Chromium 浏览器 (Chrome, Edge, Opera, Brave, Vivaldi, Arc)：
 
-1) Download `gemini-voyager-chrome-vX.Y.Z.zip` from the Releases page
-2) Unzip it (you should see a `manifest.json` at the root)
-3) Open `chrome://extensions` and enable Developer mode
-4) Click "Load unpacked" and select the unzipped folder
+1) 从Releases页面下载 `gemini-voyager-chrome-vX.Y.Z.zip`
+2) 解压缩（你应该在根目录看到 `manifest.json`）
+3) 打开 `chrome://extensions` 并启用开发者模式
+4) 点击"加载已解压的扩展程序"并选择解压后的文件夹
 
 <details>
 <summary>Firefox</summary>
 
-1) Download `gemini-voyager-firefox-vX.Y.Z.zip`
-2) Unzip
-3) Open `about:debugging#/runtime/this-firefox`
-4) Click "Load Temporary Add-on" and choose the `manifest.json` inside the folder
+1) 下载 `gemini-voyager-firefox-vX.Y.Z.zip`
+2) 解压缩
+3) 打开 `about:debugging#/runtime/this-firefox`
+4) 点击"临时载入附加组件"并选择文件夹内的 `manifest.json`
 </details>
 
 <details>
 <summary>Safari</summary>
 
-1) Download `gemini-voyager-safari-vX.Y.Z.zip` from Releases
-2) Convert: `xcrun safari-web-extension-converter dist_safari --macos-only --app-name "Omni Voyager"`
+1) 从Releases下载 `gemini-voyager-safari-vX.Y.Z.zip`
+2) 转换：`xcrun safari-web-extension-converter dist_safari --macos-only --app-name "Omni Voyager"`
 </details>
 
 ---
 
-## For Developers
+## 开发者指南
 
 ```bash
-# Install dependencies (Bun recommended)
+# 安装依赖（推荐使用Bun）
 bun i
 
-# Development (auto‑reload)
+# 开发模式（自动重载）
 bun run dev:chrome
 bun run dev:firefox
 bun run dev:safari  # macOS
 
-# Production builds
+# 生产构建
 bun run build:chrome
 bun run build:firefox
 bun run build:safari
 bun run build:all
 ```
 
-Or with npm/pnpm:
+或者使用 npm/pnpm：
 ```bash
 pnpm install
 pnpm run dev:chrome
 pnpm run dev:firefox
-pnpm run dev:safari  # macOS only
+pnpm run dev:safari  # 仅macOS
 ```
 
 ---
 
-## Credits
+## 致谢
 
-Inspired by ChatGPT Conversation Timeline. We adapted the timeline concept and added folder management, prompt library, and chat export.
+灵感来源于ChatGPT Conversation Timeline。我们借鉴了时间线概念，并增加了文件夹管理、提示词库和对话导出功能。
 
-## Contributing
+## 贡献
 
-We welcome issues and pull requests. See `.github/CONTRIBUTING.md` for guidelines.
+欢迎提交问题和拉取请求。请参阅 `.github/CONTRIBUTING.md` 了解指南。
 
 ---
 
-## Support This Project
+## 支持此项目
 
-If you find Omni Voyager helpful, consider supporting development:
+如果您觉得Omni Voyager很有帮助，请考虑支持开发：
 
 <div align="center">
   <a href="https://www.buymeacoffee.com/Nag1ovo" target="_blank">
@@ -162,16 +162,16 @@ If you find Omni Voyager helpful, consider supporting development:
 </div>
 
 <div align="center">
-  <p><b>Or support via WeChat / Alipay:</b></p>
+  <p><b>或通过微信/支付宝支持：</b></p>
   <table>
     <tr>
       <td align="center">
-        <img src="public/wechat-sponsor.jpg" alt="WeChat Pay" width="200"><br>
-        <sub><b>WeChat Pay</b></sub>
+        <img src="public/wechat-sponsor.jpg" alt="微信支付" width="200"><br>
+        <sub><b>微信支付</b></sub>
       </td>
       <td align="center">
-        <img src="public/alipay-sponsor.jpg" alt="Alipay" width="200"><br>
-        <sub><b>Alipay</b></sub>
+        <img src="public/alipay-sponsor.jpg" alt="支付宝" width="200"><br>
+        <sub><b>支付宝</b></sub>
       </td>
     </tr>
   </table>
@@ -179,7 +179,7 @@ If you find Omni Voyager helpful, consider supporting development:
 
 ---
 
-## Star History
+## Star历史
 
 <a href="https://www.star-history.com/#Hisn00w/OmniVoyager&Timeline">
  <picture>
@@ -192,8 +192,8 @@ If you find Omni Voyager helpful, consider supporting development:
 ---
 
 <div align="center">
-  <p>Made with love for the AI community</p>
-  <p>If you find this useful, please star the repo on GitHub!</p>
+  <p>为AI社区倾情制作</p>
+  <p>如果您觉得有用，请在GitHub上给这个仓库加星！</p>
 </div>
 
 ---
