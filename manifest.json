@@ -1,0 +1,66 @@
+{
+  "manifest_version": 3,
+  "name": "Omni Voyager",
+  "description": "Timeline, prompts, export and more for Gemini / AI Studio / ChatGPT / Deepseek / Doubao / Kimi.",
+  "version": "0.7.6",
+  "action": {
+    "default_popup": "src/pages/popup/index.html",
+    "default_icon": {
+      "32": "icon-32.png"
+    }
+  },
+  "icons": {
+    "128": "icon-128.png"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://*.googleusercontent.com/*",
+    "https://lh3.google.com/*",
+    "https://*.ggpht.com/*"
+  ],
+  "background": {
+    "service_worker": "src/pages/background/index.ts",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://gemini.google.com/*",
+        "https://aistudio.google.com/*",
+        "https://chatgpt.com/*",
+        "https://chat.openai.com/*",
+        "https://chat.deepseek.com/*",
+        "https://www.doubao.com/*",
+        "https://www.kimi.com/*",
+        "https://kimi.moonshot.cn/*"
+      ],
+      "js": [
+        "src/pages/content/index.tsx"
+      ],
+      "css": [
+        "contentStyle.css"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "contentStyle.css",
+        "icon-128.png",
+        "icon-32.png"
+      ],
+      "matches": [
+        "https://gemini.google.com/*",
+        "https://aistudio.google.com/*",
+        "https://chatgpt.com/*",
+        "https://chat.openai.com/*",
+        "https://chat.deepseek.com/*",
+        "https://www.doubao.com/*",
+        "https://www.kimi.com/*",
+        "https://kimi.moonshot.cn/*"
+      ]
+    }
+  ]
+}

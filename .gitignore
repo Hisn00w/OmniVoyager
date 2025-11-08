@@ -1,0 +1,33 @@
+node_modules/
+/dist_chrome/
+/dist_firefox/
+/dist_safari/
+
+# Vitest
+coverage/
+.vitest/
+
+# Generated Xcode projects (users generate these locally)
+/Gemini Voyager/
+*.xcodeproj/xcuserdata/
+*.xcworkspace/xcuserdata/
+DerivedData/
+
+.git-commit-message.txt
+
+package-lock.json
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+.vscode/
+.idea/
+.DS_Store
+
+*.local
+.env*
+
+*.mov
+*.mp4
+

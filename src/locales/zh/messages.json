@@ -1,0 +1,294 @@
+{
+  "extName": {
+    "message": "Omni Voyager",
+    "description": ""
+  },
+  "extDescription": {
+    "message": "为 Gemini / AI Studio / ChatGPT / Deepseek / 豆包 / Kimi 提供时间线、提示库、导出等增强功能",
+    "description": ""
+  },
+  "scrollMode": {
+    "message": "滚动模式",
+    "description": ""
+  },
+  "flow": {
+    "message": "平滑",
+    "description": ""
+  },
+  "jump": {
+    "message": "跳跃",
+    "description": ""
+  },
+  "hideOuterContainer": {
+    "message": "隐藏时间线外框",
+    "description": ""
+  },
+  "draggableTimeline": {
+    "message": "时间线可拖动",
+    "description": ""
+  },
+  "resetPosition": {
+    "message": "重置位置",
+    "description": ""
+  },
+  "language": {
+    "message": "语言",
+    "description": ""
+  },
+  "pm_title": {
+    "message": "Prompt 管理器",
+    "description": ""
+  },
+  "pm_add": {
+    "message": "新增",
+    "description": ""
+  },
+  "pm_search_placeholder": {
+    "message": "搜索 prompt 或标签",
+    "description": ""
+  },
+  "pm_import": {
+    "message": "导入",
+    "description": ""
+  },
+  "pm_export": {
+    "message": "导出",
+    "description": ""
+  },
+  "pm_prompt_placeholder": {
+    "message": "输入 prompt 内容",
+    "description": ""
+  },
+  "pm_tags_placeholder": {
+    "message": "标签（逗号分隔）",
+    "description": ""
+  },
+  "pm_save": {
+    "message": "保存",
+    "description": ""
+  },
+  "pm_cancel": {
+    "message": "取消",
+    "description": ""
+  },
+  "pm_all_tags": {
+    "message": "全部",
+    "description": ""
+  },
+  "pm_empty": {
+    "message": "暂无 prompt",
+    "description": ""
+  },
+  "pm_copy": {
+    "message": "复制",
+    "description": ""
+  },
+  "pm_copied": {
+    "message": "已复制",
+    "description": ""
+  },
+  "pm_delete": {
+    "message": "删除",
+    "description": ""
+  },
+  "pm_delete_confirm": {
+    "message": "确定删除此 prompt 吗？",
+    "description": ""
+  },
+  "pm_lock": {
+    "message": "Lock",
+    "description": ""
+  },
+  "pm_unlock": {
+    "message": "Unlock",
+    "description": ""
+  },
+  "pm_import_invalid": {
+    "message": "文件格式不正确",
+    "description": ""
+  },
+  "pm_import_success": {
+    "message": "已导入 {count} 条 prompt",
+    "description": ""
+  },
+  "pm_duplicate": {
+    "message": "重复的 prompt",
+    "description": ""
+  },
+  "pm_deleted": {
+    "message": "已删除",
+    "description": ""
+  },
+  "pm_edit": {
+    "message": "编辑",
+    "description": ""
+  },
+  "pm_saved": {
+    "message": "已保存",
+    "description": ""
+  },
+  "starProject": {
+    "message": "支持这个项目",
+    "description": ""
+  },
+  "exportChatJson": {
+    "message": "导出聊天记录（JSON）",
+    "description": ""
+  },
+  "folder_title": {
+    "message": "文件夹",
+    "description": ""
+  },
+  "folder_create": {
+    "message": "创建文件夹",
+    "description": ""
+  },
+  "folder_name_prompt": {
+    "message": "输入文件夹名称：",
+    "description": ""
+  },
+  "folder_rename_prompt": {
+    "message": "输入新名称：",
+    "description": ""
+  },
+  "folder_delete_confirm": {
+    "message": "确定删除此文件夹及其所有内容吗？",
+    "description": ""
+  },
+  "folder_create_subfolder": {
+    "message": "创建子文件夹",
+    "description": ""
+  },
+  "folder_rename": {
+    "message": "重命名",
+    "description": ""
+  },
+  "folder_delete": {
+    "message": "删除",
+    "description": ""
+  },
+  "folder_pin": {
+    "message": "置顶文件夹",
+    "description": ""
+  },
+  "folder_unpin": {
+    "message": "取消置顶",
+    "description": ""
+  },
+  "folder_remove_conversation": {
+    "message": "从文件夹中移除",
+    "description": ""
+  },
+  "folder_remove_conversation_confirm": {
+    "message": "从此文件夹中移除“{title}”？",
+    "description": ""
+  },
+  "conversation_more": {
+    "message": "更多操作",
+    "description": ""
+  },
+  "conversation_move_to_folder": {
+    "message": "移动到文件夹",
+    "description": ""
+  },
+  "conversation_move_to_folder_title": {
+    "message": "移动到文件夹",
+    "description": ""
+  },
+  "chatWidth": {
+    "message": "对话宽度",
+    "description": ""
+  },
+  "chatWidthNarrow": {
+    "message": "较窄",
+    "description": ""
+  },
+  "chatWidthWide": {
+    "message": "较宽",
+    "description": ""
+  },
+  "formula_copied": {
+    "message": "公式已复制",
+    "description": ""
+  },
+  "formula_copy_failed": {
+    "message": "复制失败",
+    "description": ""
+  },
+  "folder_export": {
+    "message": "导出文件夹",
+    "description": ""
+  },
+  "folder_import": {
+    "message": "导入文件夹",
+    "description": ""
+  },
+  "folder_import_title": {
+    "message": "导入文件夹配置",
+    "description": ""
+  },
+  "folder_import_strategy": {
+    "message": "导入策略：",
+    "description": ""
+  },
+  "folder_import_merge": {
+    "message": "与现有文件夹合并",
+    "description": ""
+  },
+  "folder_import_overwrite": {
+    "message": "覆盖现有文件夹",
+    "description": ""
+  },
+  "folder_import_select_file": {
+    "message": "选择要导入的 JSON 文件",
+    "description": ""
+  },
+  "folder_import_success": {
+    "message": "已导入 {folders} 个文件夹、{conversations} 个对话",
+    "description": ""
+  },
+  "folder_import_success_skipped": {
+    "message": "已导入 {folders} 个文件夹、{conversations} 个对话（跳过 {skipped} 个重复项）",
+    "description": ""
+  },
+  "folder_import_error": {
+    "message": "导入失败：{error}",
+    "description": ""
+  },
+  "folder_export_success": {
+    "message": "文件夹导出成功",
+    "description": ""
+  },
+  "folder_import_invalid_format": {
+    "message": "文件格式无效，请选择正确的文件夹配置文件",
+    "description": ""
+  },
+  "folder_import_confirm_overwrite": {
+    "message": "这将替换所有现有文件夹，系统会先创建备份，是否继续？",
+    "description": ""
+  },
+  "export_dialog_title": {
+    "message": "导出对话",
+    "description": ""
+  },
+  "export_dialog_select": {
+    "message": "选择导出格式：",
+    "description": ""
+  },
+  "editInputWidth": {
+    "message": "编辑框宽度",
+    "description": ""
+  },
+  "editInputWidthNarrow": {
+    "message": "较窄",
+    "description": ""
+  },
+  "editInputWidthWide": {
+    "message": "较宽",
+    "description": ""
+  },
+  "timelineOptions": {
+    "message": "时间线选项",
+    "description": ""
+  }
+}

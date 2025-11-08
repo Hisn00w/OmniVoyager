@@ -1,0 +1,102 @@
+{
+  "extName": {
+    "message": "Omni Voyager",
+    "description": "Extension name"
+  },
+  "extDescription": {
+    "message": "Timeline, prompts, export and more for Gemini / AI Studio / ChatGPT / Deepseek / Doubao / Kimi.",
+    "description": "Extension description"
+  },
+  "scrollMode": {
+    "message": "Scroll mode",
+    "description": "Scroll mode label"
+  },
+  "flow": {
+    "message": "Flow",
+    "description": "Flow mode"
+  },
+  "jump": {
+    "message": "Jump",
+    "description": "Jump mode"
+  },
+  "hideOuterContainer": {
+    "message": "Hide outer container",
+    "description": "Hide outer container label"
+  },
+  "draggableTimeline": {
+    "message": "Draggable Timeline",
+    "description": "Draggable Timeline label"
+  },
+  "resetPosition": {
+    "message": "Reset Position",
+    "description": "Reset Position button"
+  },
+  "language": {
+    "message": "Language",
+    "description": "Language label"
+  },
+  "pm_title": { "message": "Prompt Manager", "description": "Prompt Manager title" },
+  "pm_add": { "message": "Add", "description": "Add prompt button" },
+  "pm_search_placeholder": { "message": "Search prompts or tags", "description": "Search placeholder" },
+  "pm_import": { "message": "Import", "description": "Import button" },
+  "pm_export": { "message": "Export", "description": "Export button" },
+  "pm_prompt_placeholder": { "message": "Prompt text", "description": "Prompt textarea placeholder" },
+  "pm_tags_placeholder": { "message": "Tags (comma separated)", "description": "Tags input placeholder" },
+  "pm_save": { "message": "Save", "description": "Save prompt" },
+  "pm_cancel": { "message": "Cancel", "description": "Cancel" },
+  "pm_all_tags": { "message": "All", "description": "All tags chip" },
+  "pm_empty": { "message": "No prompts yet", "description": "Empty state" },
+  "pm_copy": { "message": "Copy", "description": "Copy prompt" },
+  "pm_copied": { "message": "Copied", "description": "Copied notice" },
+  "pm_delete": { "message": "Delete", "description": "Delete prompt" },
+  "pm_delete_confirm": { "message": "Delete this prompt?", "description": "Delete confirm" },
+  "pm_lock": { "message": "Lock position", "description": "Lock panel position" },
+  "pm_unlock": { "message": "Unlock position", "description": "Unlock panel position" },
+  "pm_import_invalid": { "message": "Invalid file format", "description": "Import invalid" },
+  "pm_import_success": { "message": "Imported {count} prompts", "description": "Import success" },
+  "pm_duplicate": { "message": "Duplicate prompt", "description": "Duplicate on add" },
+  "pm_deleted": { "message": "Deleted", "description": "Deleted notice" },
+  "pm_edit": { "message": "Edit", "description": "Edit prompt" },
+  "pm_saved": { "message": "Saved", "description": "Saved notice" }
+  ,"starProject": { "message": "Support the project", "description": "Github callout" }
+  ,"exportChatJson": { "message": "Export chat history (JSON)", "description": "Tooltip for export button" }
+  ,"folder_title": { "message": "Folders", "description": "Folder section title" }
+  ,"folder_create": { "message": "Create folder", "description": "Create folder button tooltip" }
+  ,"folder_name_prompt": { "message": "Enter folder name:", "description": "Create folder name prompt" }
+  ,"folder_rename_prompt": { "message": "Enter new name:", "description": "Rename folder prompt" }
+  ,"folder_delete_confirm": { "message": "Delete this folder and all its contents?", "description": "Delete folder confirmation" }
+  ,"folder_create_subfolder": { "message": "Create subfolder", "description": "Create subfolder menu item" }
+  ,"folder_rename": { "message": "Rename", "description": "Rename folder menu item" }
+  ,"folder_delete": { "message": "Delete", "description": "Delete folder menu item" }
+  ,"folder_pin": { "message": "Pin folder", "description": "Pin folder menu item" }
+  ,"folder_unpin": { "message": "Unpin folder", "description": "Unpin folder menu item" }
+  ,"folder_remove_conversation": { "message": "Remove from folder", "description": "Remove conversation button tooltip" }
+  ,"folder_remove_conversation_confirm": { "message": "Remove \"{title}\" from this folder?", "description": "Remove conversation confirmation" }
+  ,"conversation_more": { "message": "More options", "description": "Conversation more options button tooltip" }
+  ,"conversation_move_to_folder": { "message": "Move to folder", "description": "Move conversation to folder menu item" }
+  ,"conversation_move_to_folder_title": { "message": "Move to folder", "description": "Move conversation to folder dialog title" }
+  ,"chatWidth": { "message": "Chat width", "description": "Chat width adjustment label" }
+  ,"chatWidthNarrow": { "message": "Narrow", "description": "Narrow chat width label" }
+  ,"chatWidthWide": { "message": "Wide", "description": "Wide chat width label" }
+  ,"formula_copied": { "message": "✓ Formula copied", "description": "Formula copied success message" }
+  ,"formula_copy_failed": { "message": "✗ Failed to copy", "description": "Formula copy failed message" }
+  ,"folder_export": { "message": "Export folders", "description": "Export folders button tooltip" }
+  ,"folder_import": { "message": "Import folders", "description": "Import folders button tooltip" }
+  ,"folder_import_title": { "message": "Import Folder Configuration", "description": "Import dialog title" }
+  ,"folder_import_strategy": { "message": "Import strategy:", "description": "Import strategy label" }
+  ,"folder_import_merge": { "message": "Merge with existing folders", "description": "Merge import strategy" }
+  ,"folder_import_overwrite": { "message": "Overwrite existing folders", "description": "Overwrite import strategy" }
+  ,"folder_import_select_file": { "message": "Select a JSON file to import", "description": "Import file selection prompt" }
+  ,"folder_import_success": { "message": "✓ Imported {folders} folders, {conversations} conversations", "description": "Import success message" }
+  ,"folder_import_success_skipped": { "message": "✓ Imported {folders} folders, {conversations} conversations ({skipped} duplicates skipped)", "description": "Import success with skipped message" }
+  ,"folder_import_error": { "message": "✗ Import failed: {error}", "description": "Import error message" }
+  ,"folder_export_success": { "message": "✓ Folders exported successfully", "description": "Export success message" }
+  ,"folder_import_invalid_format": { "message": "Invalid file format. Please select a valid folder configuration file.", "description": "Invalid format error" }
+  ,"folder_import_confirm_overwrite": { "message": "This will replace all existing folders. A backup will be created. Continue?", "description": "Overwrite confirmation" }
+  ,"export_dialog_title": { "message": "Export Conversation", "description": "Export dialog title" }
+  ,"export_dialog_select": { "message": "Choose export format:", "description": "Export format selection label" }
+  ,"editInputWidth": { "message": "Edit input width", "description": "Edit input width adjustment label" }
+  ,"editInputWidthNarrow": { "message": "Narrow", "description": "Narrow edit input width label" }
+  ,"editInputWidthWide": { "message": "Wide", "description": "Wide edit input width label" }
+  ,"timelineOptions": { "message": "Timeline Options", "description": "Timeline options section label" }
+}

@@ -1,0 +1,51 @@
+{
+  "name": "Omni Voyager",
+  "description": "Timeline, prompts, export and more for Gemini / AI Studio / ChatGPT / Deepseek / Doubao / Kimi.",
+  "action": {
+    "default_icon": "public/dev-icon-32.png",
+    "default_popup": "src/pages/popup/index.html"
+  },
+  "icons": {
+    "128": "public/dev-icon-128.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["contentStyle.css", "dev-icon-128.png", "dev-icon-32.png", "icon-32.png", "icon-128.png"],
+      "matches": [
+        "https://gemini.google.com/*",
+        "https://aistudio.google.com/*",
+        "https://chatgpt.com/*",
+        "https://chat.openai.com/*",
+        "https://chat.deepseek.com/*",
+        "https://www.doubao.com/*",
+        "https://www.kimi.com/*",
+        "https://kimi.moonshot.cn/*"
+      ]
+    }
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://gemini.google.com/*",
+        "https://aistudio.google.com/*",
+        "https://chatgpt.com/*",
+        "https://chat.openai.com/*",
+        "https://chat.deepseek.com/*",
+        "https://www.doubao.com/*",
+        "https://www.kimi.com/*",
+        "https://kimi.moonshot.cn/*"
+      ],
+      "js": ["src/pages/content/index.tsx"],
+      "css": ["contentStyle.css"]
+    }
+  ],
+  "host_permissions": [
+    "https://*.googleusercontent.com/*",
+    "https://lh3.google.com/*",
+    "https://*.ggpht.com/*"
+  ],
+  "background": {
+    "service_worker": "src/pages/background/index.ts",
+    "type": "module"
+  }
+}

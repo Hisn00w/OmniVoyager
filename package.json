@@ -1,0 +1,78 @@
+{
+  "name": "omni-voyager",
+  "version": "0.7.6",
+  "description": "Timeline, prompts, export and more for Gemini / AI Studio / ChatGPT / Deepseek / Doubao / Kimi.",
+  "license": "MIT",
+  "author": "Jesse Zhang",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Hisn00w/OmniVoyager.git"
+  },
+  "scripts": {
+    "build": "vite build --config vite.config.chrome.ts",
+    "build:chrome": "vite build --config vite.config.chrome.ts",
+    "build:firefox": "vite build --config vite.config.firefox.ts",
+    "build:safari": "vite build --config vite.config.safari.ts",
+    "build:all": "bun run build:chrome && bun run build:firefox && bun run build:safari",
+    "dev": "nodemon --config nodemon.chrome.json",
+    "dev:chrome": "nodemon --config nodemon.chrome.json",
+    "dev:firefox": "nodemon --config nodemon.firefox.json",
+    "dev:safari": "nodemon --config nodemon.safari.json",
+    "test": "vitest run",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest run --coverage",
+    "test:watch": "vitest watch",
+    "lint": "eslint . --ext .ts,.tsx --fix",
+    "format": "prettier --write .",
+    "typecheck": "tsc --noEmit",
+    "commitlint": "commitlint --edit $GIT_PARAMS"
+  },
+  "type": "module",
+  "dependencies": {
+    "jszip": "^3.10.1",
+    "dompurify": "^3",
+    "katex": "^0.16",
+    "marked": "16.4.1",
+    "marked-katex-extension": "^4",
+    "prettier": "^3.6.2",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "webextension-polyfill": "^0.12.0"
+  },
+  "devDependencies": {
+    "@crxjs/vite-plugin": "2.2.1",
+    "@tailwindcss/vite": "^4.1.15",
+    "@types/chrome": "^0.1.24",
+    "@types/jsdom": "^27.0.0",
+    "@types/jszip": "^3.4.1",
+    "@types/node": "^24.9.0",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "@types/webextension-polyfill": "^0.12.3",
+    "@typescript-eslint/eslint-plugin": "8.46.2",
+    "@typescript-eslint/parser": "^8.46.2",
+    "@vitejs/plugin-react": "5.1.0",
+    "@vitest/coverage-v8": "^4.0.6",
+    "@vitest/ui": "^4.0.6",
+    "eslint": "^9.38.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "7.0.1",
+    "fs-extra": "^11.3.0",
+    "jsdom": "^27.1.0",
+    "nodemon": "^3.1.10",
+    "tailwindcss": "^4.1.15",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3",
+    "vite": "^7.1.11",
+    "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^4.0.6"
+  },
+  "overrides": {
+    "rollup": "^4.24.0"
+  }
+}
+
+
