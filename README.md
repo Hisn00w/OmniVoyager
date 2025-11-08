@@ -1,7 +1,7 @@
 <div align="center">
   <img src="public/icon-128.png" alt="logo"/>
   <h1>Omni Voyager</h1>
-  <h3>您的全能工具包，适用于 Gemini · AI Studio · ChatGPT · Deepseek · 豆包 · Kimi</h3>
+  <h3>您的大模型工具包，适用于 Gemini · AI Studio · ChatGPT · Deepseek · 豆包 · Kimi</h3>
   <p>时间线导航、提示词库、一键导出、宽度控制和公式复制 — 全部针对现代AI聊天界面进行了优化。</p>
 
   <p>

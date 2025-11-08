@@ -15,7 +15,7 @@
 </div>
 
 <p align="center">
-  <a href="./README_ZH.md">简体中文</a> · <a href="#简体中文快速说明">中文速览</a>
+  <a href="./README.md">简体中文</a> · <a href="#简体中文快速说明">中文速览</a>
 </p>
 
 ---

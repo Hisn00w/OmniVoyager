@@ -31,6 +31,41 @@ const HOST_USER_SELECTORS: Record<string, string[]> = {
   ],
 };
 
+const GENERIC_USER_HINT_SELECTORS: string[] = [
+  '[data-role="question"]',
+  '[data-role="ask"]',
+  '[data-type="question"]',
+  '[data-message-type="question"]',
+  '[data-message-direction="outgoing"]',
+  '[data-message-direction="sent"]',
+  '[data-side="user"]',
+  '[data-side="right"]',
+  '[data-user-message="true"]',
+  '[data-origin="user"]',
+  '[data-sender="me"]',
+  '[data-owner="user"]',
+  '[data-speaker="ask"]',
+  '[data-actor-role="user"]',
+  '[data-testid*="user"]',
+  '[data-testid*="question"]',
+  '[data-testid*="ask"]',
+  '[data-testid*="me"]',
+  '[data-author*="user"]',
+  '.message-row--question',
+  '.message-item--question',
+  '.message--question',
+  '.conversation-item--user',
+  '.conversation-item--me',
+  '.chat-message--question',
+  '.chat-message--me',
+  '.chat-item--question',
+  '.chat-item--me',
+  '.chat-bubble--user',
+  '.chat-bubble--question',
+  '.ask-message',
+  '.user-question',
+];
+
 function hashString(input: string): string {
   let h = 2166136261 >>> 0;
   for (let i = 0; i < input.length; i++) {
@@ -220,31 +255,81 @@ export class TimelineManager {
     return `${location.host}:${hashString(raw)}`;
   }
 
-  private waitForElement(selector: string, timeoutMs: number = 5000): Promise<Element | null> {
+  private waitForFirstMatchingElement(
+    selectors: string[],
+    timeoutMs: number = 5000
+  ): Promise<{ element: Element | null; selector: string }> {
     return new Promise((resolve) => {
-      const found = document.querySelector(selector);
-      if (found) return resolve(found);
-      const obs = new MutationObserver(() => {
-        const el = document.querySelector(selector);
-        if (el) {
+      const cleanSelectors = selectors
+        .filter((sel) => typeof sel === 'string')
+        .map((sel) => sel.trim())
+        .filter(Boolean);
+
+      if (!cleanSelectors.length) {
+        resolve({ element: null, selector: '' });
+        return;
+      }
+
+      let observer: MutationObserver | null = null;
+      let finished = false;
+
+      const finish = (result: { element: Element | null; selector: string }) => {
+        if (finished) return;
+        finished = true;
+        if (observer) {
           try {
-            obs.disconnect();
+            observer.disconnect();
           } catch {}
-          resolve(el);
+          observer = null;
         }
-      });
-      try {
-        obs.observe(document.body, { childList: true, subtree: true });
-      } catch {}
-      if (timeoutMs > 0) {
-        setTimeout(() => {
+        resolve(result);
+      };
+
+      const tryFind = (): boolean => {
+        for (const sel of cleanSelectors) {
           try {
-            obs.disconnect();
-          } catch {}
-          resolve(null);
-        }, timeoutMs);
+            const el = document.querySelector(sel);
+            if (el) {
+              finish({ element: el, selector: sel });
+              return true;
+            }
+          } catch {
+            // Ignore invalid selectors
+          }
+        }
+        return false;
+      };
+
+      if (tryFind()) return;
+
+      observer = new MutationObserver(() => {
+        tryFind();
+      });
+
+      const target = document.body || document.documentElement;
+      try {
+        observer.observe(target, { childList: true, subtree: true });
+      } catch {
+        finish({ element: null, selector: '' });
+        return;
+      }
+
+      if (timeoutMs > 0) {
+        setTimeout(() => finish({ element: null, selector: '' }), timeoutMs);
       }
     });
+  }
+
+  private getSelectorWaitTimeout(host: string): number {
+    if (
+      host === 'chat.deepseek.com' ||
+      host === 'www.doubao.com' ||
+      host === 'www.kimi.com' ||
+      host === 'kimi.moonshot.cn'
+    ) {
+      return 2200;
+    }
+    return 4500;
   }
 
   private async findCriticalElements(): Promise<boolean> {
@@ -258,6 +343,7 @@ export class TimelineManager {
     const defaultCandidates = Array.from(
       new Set([
         ...hostSpecific,
+        ...GENERIC_USER_HINT_SELECTORS,
         // Angular-based Gemini UI user bubble (primary)
         '.user-query-bubble-with-background',
         // Angular containers (fallbacks if bubble selector changes)
@@ -288,20 +374,17 @@ export class TimelineManager {
     const candidates = configured.length
       ? [configured, ...defaultCandidates.filter((s) => s !== configured)]
       : defaultCandidates;
-    let firstTurn: Element | null = null;
-    let matchedSelector = '';
-    for (const sel of candidates) {
-      firstTurn = await this.waitForElement(sel, 4000);
-      if (firstTurn) {
-        this.userTurnSelector = sel;
-        matchedSelector = sel;
-        break;
-      }
-    }
+    const normalizedCandidates = candidates.filter((s) => typeof s === 'string' && s.trim().length);
+
+    const { element: firstTurn, selector: matchedSelector } = await this.waitForFirstMatchingElement(
+      normalizedCandidates,
+      this.getSelectorWaitTimeout(host)
+    );
+
     if (!firstTurn) {
       this.conversationContainer =
         (document.querySelector('main') as HTMLElement) || (document.body as HTMLElement);
-      this.userTurnSelector = defaultCandidates.join(',');
+      this.userTurnSelector = normalizedCandidates.join(',') || defaultCandidates.join(',');
     } else {
       // Scope selection/observers:
       // - Broad scope (main/body) if:
@@ -317,6 +400,7 @@ export class TimelineManager {
         if (!parent) return false;
         this.conversationContainer = parent;
       }
+      this.userTurnSelector = matchedSelector || normalizedCandidates.join(',');
       // Persist auto-detected selector for future sessions when no explicit user override exists
       if (!userOverride && matchedSelector) {
         try {
