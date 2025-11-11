@@ -1,7 +1,5 @@
 node_modules/
 /dist_chrome/
-/dist_firefox/
-/dist_safari/
 
 # Vitest
 coverage/
@@ -30,4 +28,3 @@ yarn-error.log*
 
 *.mov
 *.mp4
-

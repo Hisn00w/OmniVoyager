@@ -1,176 +1,159 @@
-<div align="center">
-  <img src="public/icon-128.png" alt="logo"/>
+﻿<div align="center">
+  <img src="public/icon-128.png" alt="Omni Voyager logo" width="120" />
   <h1>Omni Voyager</h1>
-  <h3>Your all-in-one toolkit for Gemini · AI Studio · ChatGPT · Deepseek · 豆包 · Kimi</h3>
-  <p>Timeline navigation, prompt library, one-click export, width controls, and formula copy — all optimized for modern AI chat surfaces.</p>
-
+  <p>Your all-in-one productivity kit for Gemini · AI Studio · ChatGPT · DeepSeek · Doubao · Kimi</p>
+  <p>Timeline navigation · Prompt library · One-click export · Flexible chat width · Formula copy</p>
+  <p>Forked from <a href="https://github.com/Nagi-ovo/gemini-voyager" target="_blank">Gemini Voyager</a> — huge thanks to @Nagi-ovo</p>
   <p>
-    <img src="https://img.shields.io/badge/Chrome-4285F4?style=flat-square&logo=googlechrome&logoColor=white" alt="Chrome">
-    <img src="https://img.shields.io/badge/Edge-0078D7?style=flat-square&logo=microsoftedge&logoColor=white" alt="Edge">
-    <img src="https://img.shields.io/badge/Firefox-FF7139?style=flat-square&logo=firefox&logoColor=white" alt="Firefox">
-    <img src="https://img.shields.io/badge/Safari-000000?style=flat-square&logo=safari&logoColor=white" alt="Safari">
-    <img src="https://img.shields.io/badge/Opera-FF1B2D?style=flat-square&logo=opera&logoColor=white" alt="Opera">
-    <img src="https://img.shields.io/badge/Brave-FB542B?style=flat-square&logo=brave&logoColor=white" alt="Brave">
+    <img src="https://img.shields.io/badge/Chrome-4285F4?style=flat-square&logo=googlechrome&logoColor=white" alt="Chrome badge" />
+    <img src="https://img.shields.io/badge/Edge-0078D7?style=flat-square&logo=microsoftedge&logoColor=white" alt="Edge badge" />
+    <img src="https://img.shields.io/badge/Opera-FF1B2D?style=flat-square&logo=opera&logoColor=white" alt="Opera badge" />
+    <img src="https://img.shields.io/badge/Brave-FB542B?style=flat-square&logo=brave&logoColor=white" alt="Brave badge" />
+  </p>
+  <p>
+    <a href="./README.md">简体中文版</a>
   </p>
 </div>
 
-<p align="center">
-  <a href="./README.md">简体中文</a> · <a href="#简体中文快速说明">中文速览</a>
-</p>
+---
+
+## Feature Highlights
+
+- **Timeline navigation** – glance through long conversations, preview messages, jump precisely, and star key turns.
+- **Folder manager** – dual-level folders (Gemini / AI Studio) with drag & drop, context menu actions, and import/export.
+- **Prompt library** – tags plus keyword search for reusable prompts, with JSON backup/restore.
+- **Conversation export** – JSON / Markdown / PDF, including assets collection and configurable filters.
+- **Adjustable chat width** – drag or input any width between 400–1400 px per site.
+- **Formula copy** – detect KaTeX / MathJax formulas and copy the original LaTeX with instant feedback.
+
+<div align="center">
+  <img src="public/teaser.png" alt="Omni Voyager teaser" />
+</div>
 
 ---
 
-## Features
-
-<div align="center">
-  <img src="public/teaser.png" alt="teaser"/>
-</div>
+## Detailed Features
 
 ### Timeline Navigation
 
-Navigate long conversations at a glance:
-- Click dots to jump to messages
-- Hover for preview
-- Long‑press to star important messages (syncs across tabs)
-- Drag the bar to reposition; auto‑sync with scroll
+- Each dot marks a user turn; click to jump instantly.
+- Hover to preview summary, long-press to star (syncs across tabs).
+- Drag the rail to reposition; scroll and timeline stay in sync.
 
-### Folder Organization (Gemini/AI Studio)
+### Folder Manager (Gemini / AI Studio)
 
-Organize chats with two‑level folders:
-- Drag and drop conversations into folders/subfolders
-- Context menu: rename, duplicate, delete
-- Local storage shared across accounts (u/0, u/1, …)
-- Import/Export for cross‑device sync (see docs/IMPORT_EXPORT_GUIDE.md)
+- Two-tier folder tree with drag-and-drop reordering.
+- Context menu provides rename, duplicate, delete, bulk actions.
+- Local storage shared across Google accounts (u/0, u/1, …).
+- Import/export JSON for cross-device migration (see `docs/IMPORT_EXPORT_GUIDE.md`).
 
 ### Prompt Library
 
-Save, search, and reuse prompts:
-- Tag system + keyword search
-- Import/Export as JSON
-- Works on Gemini, AI Studio, and ChatGPT
+- Tag + keyword filtering surfaces prompts quickly.
+- Bulk import/export enables team workflows.
+- Available on Gemini, AI Studio, and ChatGPT.
 
-### Formula Copy
+### Conversation Export (JSON / Markdown / PDF)
 
-Click KaTeX/MathJax formulas to copy source:
-- Supports inline and display math
-- Visual success feedback
-
-### Chat Export (JSON · Markdown · PDF)
-
-Export conversations with clean formatting:
-- JSON for developers
-- Markdown/PDF with images placed under `assets/`
-- One‑click export button in the page header
-- Preserves starred messages; hides UI noise (e.g., "Show thinking")
+- JSON for automation, Markdown/PDF with media moved under `assets/`.
+- One-click export button fixed in the page header.
+- Choose whether to include starred turns, system prompts, or UI decorations.
 
 ### Adjustable Chat Width
 
-Customize chat width (400–1400px) with real‑time preview.
+- Tweak width in the popup via slider/input; changes apply immediately.
+- Remembers site-specific presets so you can switch layouts quickly.
 
-> Open the extension popup to adjust scroll mode, chat width, and timeline options.
+### Formula Copy
+
+- Detects inline/block KaTeX or MathJax formulas and inserts copy buttons.
+- Floating toast reports success or failure near the cursor.
 
 ---
 
 ## Supported Sites
 
-- Gemini (`https://gemini.google.com/*`)
-- AI Studio (`https://aistudio.google.com/*`)
-- ChatGPT (`https://chatgpt.com/*`, `https://chat.openai.com/*`)
-- Deepseek (`https://chat.deepseek.com/*`)
-- Doubao (`https://www.doubao.com/*`)
-- Kimi (`https://www.kimi.com/*`, `https://kimi.moonshot.cn/*`)
+| Category | URLs |
+| --- | --- |
+| Google | `https://gemini.google.com/*`, `https://aistudio.google.com/*` |
+| OpenAI | `https://chatgpt.com/*`, `https://chat.openai.com/*` |
+| DeepSeek | `https://chat.deepseek.com/*` |
+| Doubao | `https://www.doubao.com/*` |
+| Kimi | `https://www.kimi.com/*`, `https://kimi.moonshot.cn/*` |
 
 ---
 
-## Installation
+## Installation (Chromium Browsers)
 
-Recommended: download the latest release from GitHub Releases. The Web Store listing may lag due to reviews.
+1. Download `gemini-voyager-chrome-vX.Y.Z.zip` from Releases.
+2. Extract it somewhere you can keep (you should see `manifest.json`).
+3. Open `chrome://extensions` (or equivalent) and enable **Developer mode**.
+4. Click **Load unpacked** and select the extracted folder.
 
-### Option 1: Manual (recommended)
-
-Chromium (Chrome, Edge, Opera, Brave, Vivaldi, Arc):
-
-1) Download `gemini-voyager-chrome-vX.Y.Z.zip` from the Releases page
-2) Unzip it (you should see a `manifest.json` at the root)
-3) Open `chrome://extensions` and enable Developer mode
-4) Click "Load unpacked" and select the unzipped folder
-
-<details>
-<summary>Firefox</summary>
-
-1) Download `gemini-voyager-firefox-vX.Y.Z.zip`
-2) Unzip
-3) Open `about:debugging#/runtime/this-firefox`
-4) Click "Load Temporary Add-on" and choose the `manifest.json` inside the folder
-</details>
-
-<details>
-<summary>Safari</summary>
-
-1) Download `gemini-voyager-safari-vX.Y.Z.zip` from Releases
-2) Convert: `xcrun safari-web-extension-converter dist_safari --macos-only --app-name "Omni Voyager"`
-</details>
+> Works on Chrome, Edge, Opera, Brave, Vivaldi, Arc, and other Chromium-based browsers.
 
 ---
 
-## For Developers
+## Developer Guide
 
 ```bash
 # Install dependencies (Bun recommended)
 bun i
 
-# Development (auto‑reload)
+# Dev mode with auto-reload
 bun run dev:chrome
-bun run dev:firefox
-bun run dev:safari  # macOS
 
-# Production builds
+# Production build
 bun run build:chrome
-bun run build:firefox
-bun run build:safari
-bun run build:all
 ```
 
-Or with npm/pnpm:
+Prefer npm/pnpm?
+
 ```bash
 pnpm install
 pnpm run dev:chrome
-pnpm run dev:firefox
-pnpm run dev:safari  # macOS only
 ```
+
+---
+
+## Contribution & Roadmap
+
+- PRs and issues are welcome — please include repro steps and screenshots when possible.
+- ChatGPT sidebar folder support is on the roadmap; ideas and mockups are appreciated.
+- Need custom features? Open a discussion or issue so we can coordinate.
 
 ---
 
 ## Credits
 
-Inspired by ChatGPT Conversation Timeline. We adapted the timeline concept and added folder management, prompt library, and chat export.
+- Original concept: [Gemini Voyager](https://github.com/Nagi-ovo/gemini-voyager).
+- DeepSeek adaptation: [DeepSeek Voyager](https://github.com/Azurboy/deepseek-voyager).
+- Inspiration: [ChatGPT Conversation Timeline](https://github.com/Reborn14/chatgpt-conversation-timeline).
 
-## Contributing
-
-We welcome issues and pull requests. See `.github/CONTRIBUTING.md` for guidelines.
+Big thanks to every contributor and user helping Omni Voyager improve! ❤️
 
 ---
 
-## Support This Project
+## Support the Project
 
-If you find Omni Voyager helpful, consider supporting development:
+If Omni Voyager saves you time, consider sponsoring development:
 
 <div align="center">
   <a href="https://www.buymeacoffee.com/Nag1ovo" target="_blank">
-    <img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px; width: 174px; box-shadow: 0 3px 2px 0 rgba(190,190,190,0.5);" />
+    <img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me a Coffee" style="height: 41px; width: 174px; box-shadow: 0 3px 2px 0 rgba(190,190,190,0.5);" />
   </a>
 </div>
 
 <div align="center">
-  <p><b>Or support via WeChat / Alipay:</b></p>
+  <p><b>Or sponsor via WeChat / Alipay:</b></p>
   <table>
     <tr>
       <td align="center">
-        <img src="public/wechat-sponsor.jpg" alt="WeChat Pay" width="200"><br>
-        <sub><b>WeChat Pay</b></sub>
+        <img src="public/wechat-sponsor.jpg" alt="WeChat Pay" width="200" /><br />
+        <sub><b>WeChat</b></sub>
       </td>
       <td align="center">
-        <img src="public/alipay-sponsor.jpg" alt="Alipay" width="200"><br>
+        <img src="public/alipay-sponsor.jpg" alt="Alipay" width="200" /><br />
         <sub><b>Alipay</b></sub>
       </td>
     </tr>
@@ -185,23 +168,12 @@ If you find Omni Voyager helpful, consider supporting development:
  <picture>
    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=Hisn00w/OmniVoyager&type=Timeline&theme=dark" />
    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=Hisn00w/OmniVoyager&type=Timeline" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=Hisn00w/OmniVoyager&type=Timeline" />
+   <img alt="Star history chart" src="https://api.star-history.com/svg?repos=Hisn00w/OmniVoyager&type=Timeline" />
  </picture>
 </a>
 
 ---
 
 <div align="center">
-  <p>Made with love for the AI community</p>
-  <p>If you find this useful, please star the repo on GitHub!</p>
+  <p>Made with ❤️ for the AI community — if you enjoy it, please leave a ⭐</p>
 </div>
-
----
-
-## 简体中文快速说明
-
-- 支持站点：Gemini、AI Studio、ChatGPT（chatgpt.com / chat.openai.com）、Deepseek（chat.deepseek.com）、豆包（www.doubao.com）、Kimi（www.kimi.com / kimi.moonshot.cn）
-- 主要功能：时间线导航、提示库、对话导出（JSON/Markdown/PDF）、聊天宽度可调、公式复制
-- 文件夹管理：已在 Gemini/AI Studio 适配；ChatGPT 侧边栏适配计划中
-- 安装：到 Releases 下载对应 zip，解压后在浏览器扩展页面开启「开发者模式」并选择「加载已解压的扩展」选择dist_chrome文件夹即可
-- 开发：`bun i`，然后 `bun run dev:chrome`（或使用 pnpm/npm）

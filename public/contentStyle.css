@@ -50,7 +50,7 @@
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --timeline-dot-color: #475569;
+    --timeline-dot-color: #96a3c2;
     --timeline-dot-active-color: #60a5fa;
     --timeline-star-color: #f59e0b;
     --timeline-tooltip-bg: #0b1220;
@@ -133,17 +133,11 @@
     box-shadow 0.15s ease,
     background-color 0.2s ease;
 }
-/* true punch-through: remove filled dot and draw only inner stroke to make host page visible */
+/* Keep the rail transparent on dark hosts without muting the dots */
 html.dark .timeline-track,
 [data-theme='dark'] .timeline-track,
 [data-color-scheme='dark'] .timeline-track {
   background: transparent;
-}
-html.dark .timeline-dot:not(.active):not(.starred)::after,
-[data-theme='dark'] .timeline-dot:not(.active):not(.starred)::after,
-[data-color-scheme='dark'] .timeline-dot:not(.active):not(.starred)::after {
-  background: #000;
-  box-shadow: none;
 }
 .timeline-dot:hover::after {
   transform: translate(-50%, -50%) scale(1.15);
@@ -355,12 +349,15 @@ html.dark-theme .gv-pm-trigger { background: rgba(17,24,39,0.75); color: #fff; b
 .gv-pm-trigger:hover { transform: translateY(-1px); }
 .gv-pm-trigger img {
   pointer-events: none;
-  width: 120%;
-  height: 120%;
+  width: 100%;
+  height: 100%;
   border-radius: 9999px;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
   display: block;
-  transform: translate(-10%, -10%);
+  padding: 3px;
+  box-sizing: border-box;
+  transform: none;
 }
 
 .gv-export-btn {

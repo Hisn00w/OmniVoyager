@@ -2403,7 +2403,7 @@ export class FolderManager {
   private t(key: string): string {
     try {
       // Use webextension-polyfill for cross-browser compatibility
-      // This works for Chrome, Edge, Opera, Firefox, etc.
+      // This works for Chrome, Edge, Opera, and similar Chromium browsers.
       const message = browser.i18n.getMessage(key);
       if (message && message.trim()) {
         return message;

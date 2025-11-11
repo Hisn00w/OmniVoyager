@@ -33,6 +33,21 @@ export class FormulaCopyService {
   private i18nMessages: Record<string, string> = {};
   private formulaObserver: MutationObserver | null = null;
   private decoratedMathElements: WeakSet<HTMLElement> = new WeakSet();
+  private readonly mathSelector =
+    [
+      '[data-math]',
+      '[data-latex]',
+      '[data-tex]',
+      '[data-formula]',
+      '.math-inline',
+      '.math-display',
+      '.math-block',
+      '.math-rendered',
+      '.katex',
+      '.MathJax',
+      '.MathJax_Display',
+      'mjx-container',
+    ].join(', ');
 
   private constructor(config: FormulaCopyConfig = {}) {
     this.logger = logger.createChild('FormulaCopy');
@@ -123,9 +138,9 @@ export class FormulaCopyService {
       return;
     }
 
-    const latexSource = mathElement.getAttribute('data-math');
+    const latexSource = this.getFormulaSource(mathElement);
     if (!latexSource) {
-      this.logger.warn('Math element found but no data-math attribute');
+      this.logger.warn('Math element found but no latex source attribute');
       return;
     }
 
@@ -272,7 +287,7 @@ export class FormulaCopyService {
   private decorateExistingMath(): void {
     try {
       document
-        .querySelectorAll<HTMLElement>('[data-math]')
+        .querySelectorAll<HTMLElement>(this.mathSelector)
         .forEach((el) => this.decorateMathElement(el));
     } catch (error) {
       this.logger.warn('Failed to decorate existing formulas', { error });
@@ -280,10 +295,10 @@ export class FormulaCopyService {
   }
 
   private scanForMathElements(root: HTMLElement): void {
-    if (root.matches?.('[data-math]')) {
+    if (root.matches?.(this.mathSelector)) {
       this.decorateMathElement(root);
     }
-    root.querySelectorAll?.('[data-math]')?.forEach((node) => {
+    root.querySelectorAll?.(this.mathSelector)?.forEach((node) => {
       this.decorateMathElement(node as HTMLElement);
     });
   }
@@ -293,16 +308,13 @@ export class FormulaCopyService {
       return;
     }
     this.decoratedMathElements.add(mathElement);
-    const container =
-      (mathElement.closest('.katex-display, .katex, .math-display, .math-inline') as HTMLElement) ||
-      mathElement;
-    const latexSource = mathElement.getAttribute('data-math');
+    const container = this.getFormulaContainer(mathElement);
+    const latexSource = this.getFormulaSource(mathElement);
     if (!latexSource || !container) {
       return;
     }
 
-    const isDisplay =
-      container.classList.contains('katex-display') || container.classList.contains('math-display');
+    const isDisplay = this.isDisplayFormulaElement(container);
     if (isDisplay && container.querySelector('.gv-formula-copy-btn')) {
       return;
     }
@@ -318,6 +330,7 @@ export class FormulaCopyService {
     button.type = 'button';
     button.className = 'gv-formula-copy-btn';
     button.dataset.gvFormulaButton = 'true';
+    button.dataset.gvLatex = latexSource;
     const label = this.i18nMessages.copy || 'Copy formula';
     button.setAttribute('aria-label', label);
     button.title = label;
@@ -333,7 +346,7 @@ export class FormulaCopyService {
     button.addEventListener('click', (ev) => {
       ev.preventDefault();
       ev.stopPropagation();
-      const latex = mathElement.getAttribute('data-math');
+      const latex = this.getFormulaSource(mathElement) || button.dataset.gvLatex;
       if (!latex) return;
       const rect = container.getBoundingClientRect();
       const x = ev.clientX || rect.right;
@@ -366,10 +379,8 @@ export class FormulaCopyService {
 
       // Check if element is a math container
       if (this.isMathContainer(current)) {
-        const mathElement = this.findDataMathInSubtree(current, depth);
-        if (mathElement) {
-          return mathElement;
-        }
+        const mathElement = this.findDataMathInSubtree(current);
+        return mathElement || current;
       }
 
       current = current.parentElement;
@@ -386,30 +397,112 @@ export class FormulaCopyService {
     return (
       element.classList.contains('math-inline') ||
       element.classList.contains('math-display') ||
+      element.classList.contains('math-block') ||
       element.classList.contains('katex') ||
-      element.classList.contains('katex-display')
+      element.classList.contains('katex-display') ||
+      element.classList.contains('MathJax') ||
+      element.classList.contains('MathJax_Display') ||
+      element.tagName === 'MJX-CONTAINER'
     );
   }
 
   /**
    * Search for data-math attribute in element subtree
    */
-  private findDataMathInSubtree(
-    root: HTMLElement,
-    currentDepth: number
-  ): HTMLElement | null {
-    let searchElement: HTMLElement | null = root;
-    let depth = currentDepth;
+  private findDataMathInSubtree(root: HTMLElement): HTMLElement | null {
+    if (root.hasAttribute('data-math')) {
+      return root;
+    }
+    return root.querySelector<HTMLElement>('[data-math]');
+  }
 
-    while (searchElement && depth < this.config.maxTraversalDepth) {
-      if (searchElement.hasAttribute('data-math')) {
-        return searchElement;
+  private getFormulaContainer(mathElement: HTMLElement): HTMLElement {
+    const container = mathElement.closest(
+      '.katex-display, .katex, .math-display, .math-inline, .math-block, .MathJax_Display, .MathJax, mjx-container'
+    ) as HTMLElement | null;
+    return container || mathElement;
+  }
+
+  private isDisplayFormulaElement(element: HTMLElement): boolean {
+    if (!element) return false;
+    if (
+      element.classList.contains('katex-display') ||
+      element.classList.contains('math-display') ||
+      element.classList.contains('math-block') ||
+      element.classList.contains('MathJax_Display')
+    ) {
+      return true;
+    }
+    if (element.tagName === 'MJX-CONTAINER') {
+      return element.getAttribute('display') === 'true';
+    }
+    return false;
+  }
+
+  private getFormulaSource(element: HTMLElement): string | null {
+    const attributeOrder = [
+      'data-gv-latex',
+      'data-math',
+      'data-latex',
+      'data-tex',
+      'data-formula',
+      'data-original',
+      'data-original-text',
+      'data-original-latex',
+    ];
+    for (const attr of attributeOrder) {
+      const value = this.normalizeLatex(element.getAttribute(attr));
+      if (value) {
+        if (attr === 'data-gv-latex') {
+          return value;
+        }
+        return this.cacheFormulaSource(element, value);
       }
-      searchElement = searchElement.parentElement;
-      depth++;
+    }
+
+    const datasetKeys = ['math', 'latex', 'tex', 'formula', 'original', 'equation'];
+    for (const key of datasetKeys) {
+      const value = this.normalizeLatex(element.dataset?.[key]);
+      if (value) {
+        return this.cacheFormulaSource(element, value);
+      }
+    }
+
+    const annotation = element.querySelector(
+      'annotation[encoding="application/x-tex"], mjx-assistive-mml annotation[encoding="application/x-tex"]'
+    );
+    const annotationText = this.normalizeLatex(annotation?.textContent || '');
+    if (annotationText) {
+      return this.cacheFormulaSource(element, annotationText);
+    }
+
+    const mathAltElement =
+      (element.querySelector('math[alttext]') as Element | null) ||
+      ((element.closest?.('math[alttext]') as Element | null) ?? null);
+    const altText = this.normalizeLatex(
+      (mathAltElement?.getAttribute && mathAltElement.getAttribute('alttext')) || element.getAttribute('alttext')
+    );
+    if (altText) {
+      return this.cacheFormulaSource(element, altText);
+    }
+
+    const ariaLabel = this.normalizeLatex(element.getAttribute('aria-label'));
+    if (ariaLabel && ariaLabel.includes('\\')) {
+      return this.cacheFormulaSource(element, ariaLabel);
     }
 
     return null;
+  }
+
+  private cacheFormulaSource(element: HTMLElement, latex: string): string {
+    element.dataset.gvLatex = latex;
+    return latex;
+  }
+
+  private normalizeLatex(value?: string | null): string | null {
+    if (!value) return null;
+    const trimmed = value.trim();
+    return trimmed.length ? trimmed : null;
   }
 
   /**
